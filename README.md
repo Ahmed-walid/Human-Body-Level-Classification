@@ -1,5 +1,16 @@
 # Human Body Level Classification
 
+## Project Purpose
+
+The main objective of this project is to apply machine learning concepts and algorithms to a real-world
+problem. The selected problem is “Body Level Classification”. 
+
+## Steps
+- Analysis for the given dataset to find the best way to approach it. 
+- Solving any issues related to the dataset.
+- Applying different experiments and leverage any techniques to achieve the highest performance (F1-Score)
+
+
 ## Dataset Characteristics
 ### Quick Statistics
 
