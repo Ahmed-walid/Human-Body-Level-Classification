@@ -1,12 +1,13 @@
 # Human Body Level Classification
 
-## Quick Statistics
+## Dataset Characteristics
+### Quick Statistics
 
 -   1477 data samples.
 -   16 attributes (+1 for classes).
 -   4 output classes.
 
-## Attributes Description
+### Attributes Description
 
 -   Gender: Male or female.
 -   Age: Numeric value.
