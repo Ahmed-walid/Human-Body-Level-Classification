@@ -120,47 +120,6 @@ def plot_violin_plots(x_data, sample_size):
     plt.show()
 
 
-
-
-def visualize_continuous_data(x_data, sample_size=10000):
-    '''
-    Plot a grid of scatter plots for each pair of continuous features.
-    '''
-    # get sample
-    x_data = x_data.sample(sample_size)
-    
-    # get only the continuous features
-    cont_feats = [feat for feat in x_data.columns if type(x_data.iloc[0, x_data.columns.get_loc(feat)]) != str]
-    x_data_cont = x_data[cont_feats]
-    # execlude the isArchived column
-    
-    print("Number of continuous features:", len(x_data_cont.columns))
-    
-    # get all possible combinations of 2 features
-    combinations = list(itertools.combinations(x_data_cont.columns, 2))
-    
-    num_rows = len(combinations) // 4 + 1
-    num_cols = 4
-     
-    # plot each combination of 2 features the grid
-    fig, axes = plt.subplots(num_rows, num_cols, figsize=(20, 50))
-    for i, (feat1, feat2) in tqdm(enumerate(combinations)):
-        # get the row and column index
-        row, col = i // num_cols, i % num_cols
-        # plot the scatter plot
-        axes[row, col].scatter(x_data_cont[feat1], x_data_cont[feat2], s=1)
-        axes[row, col].set_xlabel(feat1)
-        axes[row, col].set_ylabel(feat2)
-        axes[row, col].set_title(feat1 + " vs " + feat2)
-    
-    # remove remaining plots
-    for i in range(len(combinations), num_rows * num_cols):
-        fig.delaxes(axes[i // num_cols, i % num_cols])
-        
-    plt.show()
-    
-    
-
 def convey_insights(bullets_arr, title="Insights"):
     '''
     Give it a bullet points array, give you bullet points in markdown for insights.
@@ -173,6 +132,7 @@ def convey_insights(bullets_arr, title="Insights"):
     # display the markdown string
     markdown_str += '</font>'
     display(Markdown(markdown_str))
+
 
 def correlation_matrix(x_data, sample_size=10000):
     '''
